@@ -1,0 +1,22 @@
+<h2>Transaction list</h2>
+<div>
+    <table class="transaction-table">
+        <thead>
+            <tr>
+                <th *ngFor="let header of tableHeaders" [appSort]="transactions" data-order="desc" [attr.data-name]="header" [attr.data-type]="(header === 'date' ? 'date':'')">
+                    {{header}}
+                </th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr *ngFor="let transaction of transactions" routerLink="/ex3/transactions/details/{{transaction.id}}">
+                <td>{{transaction.id}}</td>
+                <td>{{transaction.amount}}</td>
+                <td>{{transaction.balance}}</td>
+                <td>{{transaction.label}}</td>
+                <td>{{transaction.date | date:'dd/MMM/yyyy HH:mm'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

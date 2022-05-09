@@ -1,0 +1,30 @@
+<h1 [style]="{'font-family':selectedFont, 'font-size':selectedFontSize + 'px', 'text-align':selectedAlignment }">
+    Hello {{name | uppercase}}!
+</h1>
+
+<div>
+    <label for="name-field">Enter name: </label>
+    <input type="text" id="name-field" [(ngModel)]="name" placeholder="name-field">
+</div>
+
+<div>
+    <label for="font-select">Choose a font:</label>
+    <select [(ngModel)]="selectedFont" id="font-select">
+        <option *ngFor="let font of fonts">{{font}}</option>
+    </select>
+</div>
+
+<div>
+    <label for="font-size-select">Choose a font size between 14 and 100:</label>
+    <input type="number" value=30 id="font-size-select" (blur)="restrictValue($event)" (keypress)="blurOnEnter($event)">
+    <p *ngIf="fontSizeErrorMessage" id="font-size-error">{{fontSizeErrorMessage}}</p>
+</div>
+
+<div>   
+    <h2>Choose alignment:</h2>
+    
+    <div *ngFor="let alignment of alignments">
+        <input type="checkbox" id="{{alignment}}" (change)="checksAndChangeAlign(alignment)"/>
+        <label for="{{alignment}}">{{alignment}} Alignment</label>
+    </div>  
+</div>

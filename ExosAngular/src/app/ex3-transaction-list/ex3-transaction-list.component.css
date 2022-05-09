@@ -1,0 +1,19 @@
+h2 {
+    text-align: center;    
+}
+
+.transaction-table {
+    border-collapse: collapse;
+    width: 75%;
+    text-align: left;
+    margin: auto;
+}
+.transaction-table tr{
+    border-bottom: 1px solid #ddd;
+}
+.transaction-table tr:hover{
+    background-color:#ddd;
+}
+.transaction-table th {
+    text-transform: capitalize;
+}
